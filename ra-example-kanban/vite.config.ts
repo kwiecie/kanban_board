@@ -16,7 +16,7 @@ export default defineConfig({
     },
     build: {
         rollupOptions: {
-          external: ['ra-data-local-storage']
+          external: ['ra-data-local-storage', '@hello-pangea/dnd'],
         }
     }
 });
