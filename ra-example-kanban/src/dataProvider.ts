@@ -7,7 +7,7 @@ import { Task, statuses } from "./tasks";
 import { stringify } from "query-string";
 
 //const baseDataProvider = fakeRestDataProvider(data, true);
-import localStorageDataProvider from '../../ra-data-local-storage';
+import localStorageDataProvider from 'ra-data-local-storage';
 
 // let url = 'https://console.firebase.google.com/u/0/project/kanbanboard-a9f6b/database/kanbanboard-a9f6b-default-rtdb/data/~2F';
 
