@@ -18,7 +18,7 @@ export const TaskColumn = ({
             flex: 1,
             paddingTop: "8px",
             paddingBottom: "16px",
-            bgcolor: "#eaeaee",
+            //bgcolor: "#eaeaee",
             "&:first-of-type": {
             paddingLeft: "5px",
             borderTopLeftRadius: 5,

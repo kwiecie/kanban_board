@@ -6,23 +6,9 @@ import data from "./data.json";
 import { Task, statuses } from "./tasks";
 import { stringify } from "query-string";
 
-//const baseDataProvider = fakeRestDataProvider(data, true);
 import localStorageDataProvider from 'ra-data-local-storage';
 
-// let url = 'https://console.firebase.google.com/u/0/project/kanbanboard-a9f6b/database/kanbanboard-a9f6b-default-rtdb/data/~2F';
-
-
-// const httpClient = (url, options = {}) => {
-//     if (!options.headers) {
-//         options.headers = new Headers({ Accept: 'application/json' });
-//     }
-//     // add your own headers here
-//     options.headers.set('Content-Range', 'posts 0-24/319');
-//     options.headers.set('Access-Control-Expose-Headers', 'Content-Range');
-//     return fetchUtils.fetchJson(url, options);
-// };
-
-// const myDataProvider = simpleRestDataProvider(url, httpClient);
+//const baseDataProvider = fakeRestDataProvider(data, true);
 
 const baseDataProvider = localStorageDataProvider({
     defaultData: {
@@ -133,3 +119,17 @@ export const dataProvider: MyDataProvider = {
   },
 };
 
+// let url = 'https://console.firebase.google.com/u/0/project/kanbanboard-a9f6b/database/kanbanboard-a9f6b-default-rtdb/data/~2F';
+
+
+// const httpClient = (url, options = {}) => {
+//     if (!options.headers) {
+//         options.headers = new Headers({ Accept: 'application/json' });
+//     }
+//     // add your own headers here
+//     options.headers.set('Content-Range', 'posts 0-24/319');
+//     options.headers.set('Access-Control-Expose-Headers', 'Content-Range');
+//     return fetchUtils.fetchJson(url, options);
+// };
+
+// const myDataProvider = simpleRestDataProvider(url, httpClient);

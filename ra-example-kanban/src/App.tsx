@@ -5,27 +5,46 @@ import {
   Edit,
   TextInput,
   Resource,
-  EditGuesser,
+  ListButton,
   ShowGuesser,
   SimpleForm,
   SelectInput,
   required,
+  fetchUtils,
   defaultTheme,
   defaultDarkTheme
 } from "react-admin";
 
-
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 //import loadable from "@loadable/component";
 //import React, { useState, useEffect, useCallback } from "react";
 
 import { dataProvider } from "./dataProvider";
+import simpleRestProvider from 'ra-data-simple-rest';
 import { TaskList } from "./tasks";
+import { TaskCreate } from "./tasks/TaskCreate";
+import { TaskEdit } from "./tasks/TaskEdit";
 
 import indigo from '@mui/material/colors/indigo';
 import pink from '@mui/material/colors/pink';
 import red from '@mui/material/colors/red';
 
 //const TaskList = React.lazy(() => import('./tasks/TaskList'));
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBb1MTLgM4zdnHm4_dYQBMPfxH7xQDMyxM",
+  authDomain: "kanbanboard-a9f6b.firebaseapp.com",
+  databaseURL: "https://kanbanboard-a9f6b-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "kanbanboard-a9f6b",
+  storageBucket: "kanbanboard-a9f6b.appspot.com",
+  messagingSenderId: "503879762141",
+  appId: "1:503879762141:web:ebd53d9492aebb2da09b34",
+  measurementId: "G-1QFJMLTTBB"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 const myTheme = {
     ...defaultTheme,
@@ -41,39 +60,14 @@ const myTheme = {
     },
 };
 
-const darkTheme = defaultDarkTheme;
+const darkTheme = {
+  ...defaultDarkTheme,
+  typography: {
+    fontFamily: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Arial', 'sans-serif'].join(','),
+  },
+};
 
-export const TaskCreate = () => (
-  <Create>
-      <SimpleForm>
-        <TextInput disabled label="Id" source="id" />
-        <TextInput source="title" validate={[required()]} />
-        <TextInput source="content" multiline={true} label="Short description" fullWidth />
-        <SelectInput source="status" choices={[
-          {id: "backlog", name: "Backlog"},
-          {id: "toDo", name: "To Do"},
-          {id: "inProgress", name: "In Progress"},
-          {id: "done", name: "Done"},
-        ]} validate={[required()]} />
-      </SimpleForm>
-  </Create>
-);
 
-export const TaskEdit = () => (
-  <Edit>
-      <SimpleForm>
-          <TextInput disabled label="Id" source="id" />
-          <TextInput source="title" validate={required()} />
-          <TextInput source="content" multiline={true} label="Short description" fullWidth />
-          <SelectInput source="status" choices={[
-            {id: "backlog", name: "Backlog"},
-            {id: "toDo", name: "To Do"},
-            {id: "inProgress", name: "In Progress"},
-            {id: "done", name: "Done"},
-          ]} validate={[required()]} />
-      </SimpleForm>
-  </Edit>
-);
 
 // const url = 'https://kanbanbackend-73bc3-default-rtdb.europe-west1.firebasedatabase.app/tasks.json';
 
@@ -111,13 +105,29 @@ export const TaskEdit = () => (
   
 //   console.log(data);
 
+//onst dataProvider = simpleRestProvider('https://console.firebase.google.com/u/0/project/kanbanboard-a9f6b/database/kanbanboard-a9f6b-default-rtdb/data/~2F');
+
+//let url = 'https://console.firebase.google.com/u/0/project/kanbanboard-a9f6b/database/kanbanboard-a9f6b-default-rtdb/data/~2F';
+
+
+// const httpClient = (url, options = {}) => {
+//     if (!options.headers) {
+//         options.headers = new Headers({ Accept: 'application/json' });
+//     }
+//     // add your own headers here
+//     options.headers.set('Content-Range', 'posts 0-24/319');
+//     options.headers.set('Access-Control-Expose-Headers', 'Content-Range');
+//     return fetchUtils.fetchJson(url, options);
+// };
+
+// const dataProvider = simpleRestProvider(url, httpClient);
 
 export const App = () => {
   return (
     <Admin 
-    dataProvider={dataProvider}
-    theme={myTheme}
-    darkTheme={darkTheme}
+      dataProvider={dataProvider}
+      theme={myTheme}
+      darkTheme={darkTheme}
   >
     <Resource
       name="tasks"
