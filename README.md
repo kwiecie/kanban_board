@@ -9,8 +9,8 @@ This web application allows users to manage their tasks using a Kanban board lay
 ## Features
 
 - **Drag-and-Drop**: :computer_mouse: Easily move tasks between columns by dragging and dropping (achieved with [@hello-pangea/dnd](https://github.com/hello-pangea/dnd).
-- **Task Management**: Add, edit, and delete tasks.
-- **Persistence**: Tasks are persisted locally, using [ra-data-local-storage](https://www.npmjs.com/package/ra-data-local-storage) allowing users to continue where they left off.
+- **Task Management**: :bulb: Add, edit, and delete tasks.
+- **Persistence**: :floppy_disk: Tasks are persisted locally, using [ra-data-local-storage](https://www.npmjs.com/package/ra-data-local-storage) allowing users to continue where they left off.
 
 
 ## Installation
