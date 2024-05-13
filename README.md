@@ -1,4 +1,17 @@
-# kanban-board
+# kanban_board
+
+## Overview
+
+Simple Kanban board web application built using TypeScript, ReactAdmin and Material UI.
+
+This web application allows users to manage their tasks using a Kanban board layout, consisting of columns representing different stages of task completion ("Backlog", "To Do", "In Progress", "Done").
+
+## Features
+
+- **Drag-and-Drop**: :computer_mouse: Easily move tasks between columns by dragging and dropping (achieved with [@hello-pangea/dnd](https://github.com/hello-pangea/dnd).
+- **Task Management**: Add, edit, and delete tasks.
+- **Persistence**: Tasks are persisted locally, using [ra-data-local-storage](https://www.npmjs.com/package/ra-data-local-storage) allowing users to continue where they left off.
+
 
 ## Installation
 
@@ -23,10 +36,4 @@ Build the application in production mode by running:
 ```sh
 npm run build
 ```
-
-## DataProvider
-
-The included local storage data provider use [ra-data-local-storage] to simulate a backend.
-
-
 
